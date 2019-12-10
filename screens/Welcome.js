@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet} from 'react-native'
 
+
 class Welcome extends Component {
   static navigationOptions = {
     header: null,
   }
+  
+  
   render() {
     return (
-        <View style={styles.container}>
-            <Text> Welcome App</Text>
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.title}> Welcome App</Text>
+      </View>
     )
   }
 }
@@ -20,5 +23,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    
+    fontSize: 40
+  }
 })
 export default Welcome
