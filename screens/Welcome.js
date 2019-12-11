@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Image, Text, View, StyleSheet, Dimensions, Animated, FlatList, TouchableOpacity, Button} from 'react-native'
+import Header from '../components/Header'
 
 import { theme } from '../constants'
-import { colors } from '../constants/theme';
+
 
 
 
@@ -15,8 +16,8 @@ class Welcome extends Component {
   scrollX = new Animated.Value(0);
   
   renderIllustrations() {
-    const { illustrations } = this.props;
-
+    const { illustrations, navigation } = this.props;
+    
     return (
       <FlatList
         horizontal
@@ -42,8 +43,12 @@ class Welcome extends Component {
               <Text style={styles.destText}>{item.desc}</Text>
             </View>
             
-            <TouchableOpacity>
-              <Text style={styles.loginBtn}>Prijavi se</Text>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Login')}>
+              <Text style={styles.loginBtnText}>Prijavi se</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.prijaviBtn}>
+              <Text style={styles.prijaviBtnText}>Registruj se</Text>
             </TouchableOpacity>
             
           </View>
@@ -57,15 +62,17 @@ class Welcome extends Component {
     )
   }
 
+  
+
   render() {
+
     return (
       <View style={styles.container}>
-        <View style={styles.logo}>
-          <Image source={require ("../assets/images/hari-trade-logo.png")} resizeMode="center" style={styles.imageLogo} />
-        </View>
+        <Header />
         <View>
           {this.renderIllustrations()}
         </View>
+        
         
       </View>
     )
@@ -97,16 +104,6 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     
   },
-  logo: {
-    
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  imageLogo: {
-    marginTop: 20,
-    width: 416,
-    height:104
-  },
   title: {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -133,13 +130,31 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     backgroundColor:'#142C79',
-    margin: 30,
-    width: 260,
+    marginBottom: 10,
+    marginHorizontal: (70, 70),
+    borderRadius:50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loginBtnText: {
     color:'#fff',
     textAlign: 'center',
-    padding: 30,
-   
-
+    padding: 15,
+    fontSize: 20,
+  },
+  prijaviBtn: {
+    backgroundColor:'#289EF6',
+    marginBottom: 10,
+    marginHorizontal: (70, 70),
+    borderRadius:50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  prijaviBtnText: {
+    color:'#fff',
+    textAlign: 'center',
+    padding: 15,
+    fontSize: 20,
   },
   stepsContainer: {
     position: 'absolute',
