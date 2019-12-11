@@ -133,7 +133,8 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     backgroundColor:'#142C79',
-    margin: 50,
+    margin: 30,
+    width: 260,
     color:'#fff',
     textAlign: 'center',
     padding: 30,
