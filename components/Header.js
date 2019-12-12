@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Dimensions } from 'react-native';
 
+
+const { width, height } = Dimensions.get('window');
 class Header extends Component {
   
   render() {

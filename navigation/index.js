@@ -28,52 +28,86 @@ const AppDrawerNavigator = createDrawerNavigator({
     Shop: {
       screen: Shop,
       navigationOptions: {
-        tabBarLabel:"Home",
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-bookmarks" size={20}/>
-        )
+        tabBarIcon: ({ focused, tintColor }) => {
+          const image = focused 
+          ? require('../assets/icons/hari-1.png')
+          : require('../assets/icons/hari-1a.png')
+          return <Image source={image} style={{width:40, height: 40}} />
+        },
       },
     },
-    'Lista želja': {screen: Favorite},
-    Pretraga:{ screen: Search },
-    Ackije: {screen: Actions},
-    Profil: {screen: AppDrawerNavigator }
+    'Lista želja': {
+      screen: Favorite,
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          const image = focused 
+          ? require('../assets/icons/22.png')
+          : require('../assets/icons/asset-1.png')
+          return <Image source={image} style={{width:40, height: 40}} />
+        },
+      },
+    },
+    Pretraga:{ 
+      screen: Search,
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          const image = focused 
+          ? require('../assets/icons/search-2.png')
+          : require('../assets/icons/search.png')
+          return <Image source={image} style={{width:30, height: 30}} />
+        },
+      }, 
+    },
+    Akcije: {
+      screen: Actions,
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          const image = focused 
+          ? require('../assets/icons/abed-1.png')
+          : require('../assets/icons/abed-1.png')
+          return <Image source={image} style={{width:30, height: 30}} />
+        },
+      },
+    },
+    Profil: {
+      screen: AppDrawerNavigator,
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          const image = focused 
+          ? require('../assets/icons/asset-53.png')
+          : require('../assets/icons/asset-27.png')
+          return <Image source={image} style={{width:35, height: 35}} />
+        },
+      }, 
+    }
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, horizontal, tintColor }) => {
-        const { routeName } = navigation.state;
-        let IconComponent = Ionicons;
-        let iconName;
-        if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-          // Sometimes we want to add badges to some icons.
-          // You can check the implementation below.
-          IconComponent = HomeIconWithBadge;
-        } else if (routeName === 'Settings') {
-          iconName = `ios-options`;
-        }
-
-        // You can return any component that you like here!
-        return <IconComponent name={iconName} size={25} color={tintColor} />;
-      },
+      
     }),
     tabBarOptions: {
       activeTintColor: '#142C79',
-      inactiveTintColor: '#289EF6',
+      inactiveTintColor: '#B6B5B5',
       style: {
-        borderColor: '#000',
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 4,
+          borderColor: '#000',
+          shadowColor: "#000",
+          backgroundColor:'#fff',
+          borderRightColor:'#000',
+          borderLeftColor:'#000',
+          borderTopColor: '#000',
+          borderWidth:1,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.60,
+          shadowRadius: 4.65,
+          elevation: 5,
+          position:'relative',
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
+          height:60
         },
-        shadowOpacity: 0.60,
-        shadowRadius: 4.65,
-        elevation: 8,
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30
-      },
     },
 
   }

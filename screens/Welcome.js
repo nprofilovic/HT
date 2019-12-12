@@ -13,6 +13,10 @@ class Welcome extends Component {
   static navigationOptions = {
     header: null,
   }
+
+  state = {
+    loading: false
+  }
   scrollX = new Animated.Value(0);
   
   renderIllustrations() {
@@ -45,7 +49,7 @@ class Welcome extends Component {
             
             <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Login')}>
               <Text style={styles.loginBtnText}>Prijavi se</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> 
 
             <TouchableOpacity style={styles.prijaviBtn}>
               <Text style={styles.prijaviBtnText}>Registruj se</Text>
@@ -69,7 +73,7 @@ class Welcome extends Component {
     return (
       <View style={styles.container}>
         <Header />
-        <View>
+        <View style={{marginBottom:60}}>
           {this.renderIllustrations()}
         </View>
         
@@ -93,6 +97,8 @@ Welcome.defaultProps = {
       title: 'Online knjižara',
       desc: 'Sav kancelarijski materijal na jednom mestu. Sav reklamni materijal na jednom kliku od Vas.'
     },
+    
+    
   ],
 };
 
@@ -100,7 +106,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent:'flex-start',
+    justifyContent:'center',
     alignItems: 'stretch',
     
   },
