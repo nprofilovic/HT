@@ -102,7 +102,7 @@ const AppDrawerNavigator = createDrawerNavigator({
           },
           shadowOpacity: 0.60,
           shadowRadius: 4.65,
-          elevation: 5,
+          elevation: 8,
           position:'relative',
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,

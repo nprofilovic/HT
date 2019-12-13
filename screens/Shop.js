@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions} from 'react-native';
-import Header from '../components/Header'
+import HeaderLogo from '../components/Header'
+import {create} from 'react-native-platform-stylesheet'
 import { theme, mocks } from '../constants';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Header, Left, Right, Body, Title } from 'native-base'
+
 
 const { width } = Dimensions.get('window');
 
@@ -57,12 +60,17 @@ class Shop extends Component {
 
     return (
       <View>
-        <View style={styles.headerLogo}>
-          
-          <Header />
-          <View style={styles.korpa}>
-            <Image source={require('../assets/icons/4.png')} style={{width:30, height:30}} />
-          </View>
+        <View>
+          <Header transparent>
+            <Left></Left>
+            <Body>
+              <Image source={require('../assets/images/hari-trade-logo.png')} resizeMode="center" style={styles.headerLogo} />
+            </Body>
+            <Right>
+              <Image source={require('../assets/icons/4.png')} style={{width: 30, height: 30}} />
+            </Right>
+          </Header>
+         
         </View>
 
         <View style={styles.tabs}>
@@ -78,19 +86,22 @@ Shop.defaultProps = {
   categories: mocks.categories,
 }
 
-const styles = StyleSheet.create({
+const styles = create({
   header:{
     paddingHorizontal: 32,
   },
   headerLogo: {
-    flex:1,
-    justifyContent:'space-between',
-    alignItems: 'flex-end',
-    marginTop:60,
+    ios:{
+      width:200,
+      height:100
+    },
+    android: {
+      width: 150,
+      height: 100,
+      marginLeft: 35,
+    }
   },
-  korpa:{
-    paddingHorizontal: 32,
-  },
+  
   tabs: {
     borderBottomColor: theme.colors.gray,
     borderBottomWidth: StyleSheet.hairlineWidth,

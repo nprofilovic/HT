@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Image, Text, View, StyleSheet, Dimensions, Animated, FlatList, TouchableOpacity, Button} from 'react-native'
-import Header from '../components/Header'
 
+import {Header, Body} from 'native-base'
 import { theme } from '../constants'
+import { stylesAll } from '../constants/styles'
 
 
 
@@ -72,7 +73,11 @@ class Welcome extends Component {
 
     return (
       <View style={styles.container}>
-        <Header />
+        <Header transparent>
+          <Body>
+            <Image source={require('../assets/images/hari-trade-logo.png')} style={stylesAll.headerLogo} resizeMode="center" />
+          </Body>
+        </Header>
         <View style={{marginBottom:60}}>
           {this.renderIllustrations()}
         </View>
