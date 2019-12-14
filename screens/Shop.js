@@ -4,7 +4,7 @@ import HeaderLogo from '../components/Header'
 import {create} from 'react-native-platform-stylesheet'
 import { theme, mocks } from '../constants';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Header, Left, Right, Body, Title } from 'native-base'
+import { Header, Left, Right, Body, Card, CardItem,  } from 'native-base'
 
 
 const { width } = Dimensions.get('window');
@@ -70,11 +70,79 @@ class Shop extends Component {
               <Image source={require('../assets/icons/4.png')} style={{width: 30, height: 30}} />
             </Right>
           </Header>
-         
+
         </View>
 
         <View style={styles.tabs}>
           {tabs.map(tab => this.renderTab(tab))}
+        </View>
+        <View style={{flexDirection:'row', justifyContent:'space-between', flexWrap:'wrap'}}>
+          <Card style={{flex: 0, width: 150, height: 300, marginLeft: 32, borderRadius:20,}}>
+            <CardItem style={{borderTopRightRadius: 20, borderTopLeftRadius:20}}>
+              
+                <Image source={require('../assets/images/HTB-1.png')} resizeMode='cover'  style={{width:100, height:150}} />
+            </CardItem>
+            <CardItem>
+              <Body>
+                <Text style={{fontSize:17, fontWeight:'bold', paddingBottom: 5,}}>Skolski ranac</Text>
+                <Text>Opis, Opis, Opis, Opis,</Text>
+              </Body>
+            </CardItem>
+            <CardItem footer style={{borderBottomRightRadius: 20, borderBottomLeftRadius:20}}>
+              <Left>
+                <Text>25.87 rsd.</Text>
+              </Left>
+              <Right>
+                <TouchableOpacity>
+                  <Image source={require('../assets/icons/srce.png')} style={{width:30, height: 30}} />
+                </TouchableOpacity>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card style={{flex: 0, width: 150, height: 300, marginLeft: 32, borderRadius:20,}}>
+            <CardItem style={{borderTopRightRadius: 20, borderTopLeftRadius:20}}>
+              
+                <Image source={require('../assets/images/HTB-1.png')} resizeMode='cover'  style={{width:100, height:150}} />
+            </CardItem>
+            <CardItem>
+              <Body>
+                <Text style={{fontSize:17, fontWeight:'bold', paddingBottom: 5,}}>Skolski ranac</Text>
+                <Text>Opis, Opis, Opis, Opis,</Text>
+              </Body>
+            </CardItem>
+            <CardItem footer style={{borderBottomRightRadius: 20, borderBottomLeftRadius:20}}>
+              <Left>
+                <Text>25.87 rsd.</Text>
+              </Left>
+              <Right>
+                <TouchableOpacity>
+                  <Image source={require('../assets/icons/srce.png')} style={{width:30, height: 30}} />
+                </TouchableOpacity>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card style={{flex: 0, width: 150, height: 300, marginLeft: 32, borderRadius:20,}}>
+            <CardItem style={{borderTopRightRadius: 20, borderTopLeftRadius:20}}>
+              
+                <Image source={require('../assets/images/HTB-1.png')} resizeMode='cover'  style={{width:100, height:150}} />
+            </CardItem>
+            <CardItem>
+              <Body>
+                <Text style={{fontSize:17, fontWeight:'bold', paddingBottom: 5,}}>Skolski ranac</Text>
+                <Text>Opis, Opis, Opis, Opis,</Text>
+              </Body>
+            </CardItem>
+            <CardItem footer style={{borderBottomRightRadius: 20, borderBottomLeftRadius:20}}>
+              <Left>
+                <Text>25.87 rsd.</Text>
+              </Left>
+              <Right>
+                <TouchableOpacity>
+                  <Image source={require('../assets/icons/srce.png')} style={{width:30, height: 30}} />
+                </TouchableOpacity>
+              </Right>
+            </CardItem>
+          </Card>
         </View>
       </View>
     );
